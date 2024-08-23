@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="google-site-verification" content="ftFOlJETX-2KNjaPh8W6s8lhigItRuu9fOmjHZZ0nY0" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>Demo Page of "Emotional Dimension Control in Text-to-Speech without Emotional Speech Data: Spanning a Broad Spectrum of Human Emotions"</title>
+</head>
+<style type="text/css">
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  thead>tr>th:first-child {
+    width: 96px;
+  }
+
+  @media (max-width: 767px) {
+    .big-screen {
+      display: none;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .small-screen {
+      display: none;
+    }
+  }
+
+.line{  /* Describes only positioning behaviour */
+    display: block; /* Not important, but helpful in this case */
+    clear: both;    /* Not important, but helpful in this case */
+}
+
+.line__figure{ /* Describes only positioning behaviour */
+    float:left;
+}
+
+.figure{ /* Describes only view representation. */
+    display: block; /* Not important, but helpful in this case */
+}
+
+.figure__image{
+    background: lightgray;
+    width: 500px;
+    height: 450px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.caption {
+    text-align: center;
+}
+</style>
+
+<body>
+  <header class="header">
+    <div class="jumbotron bg-secondary text-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <h1><a class="text-light">Demo Page of "Emotional Dimension Control in Text-to-Speech without Emotional Speech Data: Spanning a Broad Spectrum of Human Emotions"</h1><br>
+             <font size=5><span style="color:#FFFFFF"> Kun Zhou<sup>1</sup>, You Zhang<sup>2</sup>, Shengkui Zhao<sup>1</sup>, Hao Wang<sup>1</sup>, Zexu Pan<sup>1</sup>, Dianwen Ng<sup>1</sup>, Chong Zhang<sup>1</sup>, Chongjia Ni<sup>1</sup>, Yukun Ma<sup>1</sup>, Trung Hieu Nguyen<sup>1</sup>, Jia Qi Yip<sup>1</sup>, Bin Ma<sup>1</sup>        </br>
+             <font size=3><span style="color:#000000"> kun.z@alibaba-inc.com
+             </font><font size=4> <br> <br> <sup>1</sup>  Alibaba Group, Singapore<br> <sup>2</sup>  University of Rochester, U.S.A. </font>  </a>  
+            <p>
+              <div class="row">
+              </div>
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row" id="result">
+        <div class="col-md-12">
+                    <h2>-------------------------------->   Abstract   <---------------------------------</h2>
+          <br />
+       <font size="4">
+Current emotional text-to-speech (TTS) systems face challenges in mimicking a broad spectrum of human emotions due to the inherent complexity of emotions and limitations in emotional speech datasets and models. This paper proposes a TTS framework that facilitates control over pleasure, arousal, and dominance, and can synthesize a diversity of emotional styles without requiring any emotional speech data during TTS training. We train an emotional attribute predictor using only categorical labels from speech data, aligning with psychological research and incorporating anchored dimensionality reduction on self-supervised learning (SSL) features. The TTS framework converts text inputs into phonetic tokens via an autoregressive language model and uses pseudo-emotional dimensions to guide the parallel prediction of fine-grained acoustic details. Experiments conducted on the LibriTTS dataset demonstrate that our framework can synthesize speech with enhanced naturalness and a variety of emotional styles by effectively controlling emotional dimensions, even without the inclusion of any emotional speech during TTS training.
+                  <div class="big-screen">
+                    
+
+            
+
+ <br /> <br />
+
+
+          <h2>---------------------------->   System Overview   <----------------------------</h2>
+      
+<br />
+</style>
+  <img src="main.png"  width="1100" height="450" / > <p>
+                      <figcaption style="terx-align:center;"></font><font size=4> 
+                       Fig. 1 An overview of the proposed text-to-speech (TTS) framework with emotional dimension control, consisting of: (a) Emotion Dimension (ED) Predictor Training, and (b) TTS Flow. The ED predictor is pre-trained on an emotional speech dataset to map emotional features to dimension representations via anchored dimensionality reduction. It then guides the non-autoregressive language model (LM) to predict acoustic details. `P', `A', and `D' denote `Pleasure', `Arousal', and `Dominance', `G2P' represents `Grapheme-to-Phoneme'.</font>
+                      </figcaption><br>
+</article>
+</br>
+
+<h2>---------------------------->   Speech Samples <-----------------------------</h2>
+
+</br>
+
+                     <table class="table">
+                      <thead>
+                            <th colspan=4 style="color:blue;"><h4>(A) Zero-Shot TTS</h4></th>
+
+                        <tr>
+             
+                         <th colspan=4 style="color:black;"><h5>In this experiment, we evaluate our proposed framework on the zero-shot TTS task. In the proposed framework, the emotional dimension (ED) value is predicted based on the prompt speech ('Proposed w/ ED Prediction'). We selected 'Phonectic-Enhanced VALL-E' as the baseline, which demonstrates a greater robustness and enhanced zero-shot speaker cloning performance than the popular VALL-E. </p>
+
+                         Listeners are suggested to pay attention to the speech naturalness and the prosody similarity with the prompt speech. </h5></th>
+                        </tr>
+                      <tbody>
+                                
+                                
+                                <tr>
+                                    
+                                    <th  style="text-align:center;font-size:80%">   Prompt Speech </th>
+                                    <th  style="text-align:center;font-size:80%">   Phonetic-Enhanced VALL-E (Baseline)[1] </th>
+                                    <th  style="text-align:center;font-size:80%">   Proposed w/ ED Prediction </th>
+                                    <th  style="text-align:center;font-size:80%">   Ground-Truth </th>
+
+                 
+
+                                </tr>
+                                                                <!-- single sentence -->
+                         <th colspan=4 style="color:black;"><h5> Input Text: "At night, when no one knew it, the tears would come racing over the poor, forlorn little face, and would not be squeezed back." </h5></th>
+                        </tr>
+
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio  controls>
+                                      <source src="./demos/exp1_2/target/237_134500_000005_000003.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/baseline/237_126133_000002_000003-1149.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/proposed/237_126133_000002_000003-1149.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio> </td>
+                                    <td>
+
+                                                                        <audio controls>
+                                      <source src="./demos/exp1_2/ground/237_126133_000002_000003.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+
+                                  </td> </tr>
+
+
+                                                                <!-- single sentence -->
+                         <th colspan=4 style="color:black;"><h5> Input Text: " Its body is entirely covered with a thick armour of scales, and its neck, as flexible as a swan's, rises thirty feet above the waves." </h5></th>
+                        </tr>
+
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio  controls>
+                                      <source src="./demos/exp1_2/target/260_123288_000035_000002.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/baseline/260_123286_000058_000001-1509.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/proposed/260_123286_000058_000001-1509.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                            <td>
+
+                                                                        <audio controls>
+                                      <source src="./demos/exp1_2/ground/260_123286_000058_000001.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+
+                                  </td>
+                                </tr>
+
+                                                                                                <!-- single sentence -->
+                         <th colspan=4 style="color:black;"><h5> Input Text: "Every plant in the grass is set formally, grows perfectly, and may be realized completely." </h5></th>
+                        </tr>
+
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio  controls>
+                                      <source src="./demos/exp1_2/target/1188_133604_000040_000003.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/baseline/1188_133604_000048_000001-227.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/proposed/1188_133604_000048_000001-227.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                     <td>
+
+                                                                        <audio controls>
+                                      <source src="./demos/exp1_2/ground/1188_133604_000048_000001.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+
+                                  </td>
+
+                                </tr>
+
+                                                                                                                                  <!-- single sentence -->
+                         <th colspan=4 style="color:black;"><h5> Input Text: "It is true that the horses are here, but the Hurons are gone; let us, then, hunt for the path by which they parted." </h5></th>
+                        </tr>
+
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio  controls>
+                                      <source src="./demos/exp1_2/target/1320_122612_000051_000001.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/baseline/1320_122612_000019_000005-450.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/proposed/1320_122612_000019_000005-450.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                   <td>
+
+                                                                        <audio controls>
+                                      <source src="./demos/exp1_2/ground/1320_122612_000019_000005.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+
+                                  </td>
+
+                                </tr>
+
+                                                                                                                                                                  <!-- single sentence -->
+                         <th colspan=4 style="color:black;"><h5> Input Text: "You ought to know, john, if I teach Negroes I'll scarcely see much of people in my own class." </h5></th>
+                        </tr>
+
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio  controls>
+                                      <source src="./demos/exp1_2/target/1995_1836_000007_000001.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/baseline/1995_1826_000011_000000-879.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/proposed/1995_1826_000011_000000-879.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+
+                                   <td>
+
+                                                                        <audio controls>
+                                      <source src="./demos/exp1_2/ground/1995_1826_000011_000000.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+
+                                  </td>
+
+                                </tr>
+
+
+                      
+                                                                                                                                                                  <!-- single sentence -->
+                         <th colspan=4 style="color:black;"><h5> Input Text: "The Jury of Awards, in presenting four medals to the Edison company, took occasion to pay a high compliment to the efficiency of the system." </h5></th>
+                        </tr>
+
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio  controls>
+                                      <source src="./demos/exp1_2/target/2300_131720_000003_000002.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/baseline/2300_131720_000037_000001-1120.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/proposed/2300_131720_000037_000001-1120.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                       <td>
+
+                                                                        <audio controls>
+                                      <source src="./demos/exp1_2/ground/2300_131720_000037_000001.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+
+                                  </td>
+                                </tr>
+
+                                                                                                                                                                  <!-- single sentence -->
+                         <th colspan=4 style="color:black;"><h5> Input Text: "In other words, these three men took down the lectures which Luther addressed to his students in the course of galatians, and Roerer prepared the manuscript for the printer." </h5></th>
+                        </tr>
+
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio  controls>
+                                      <source src="./demos/exp1_2/target/2830_3980_000091_000002.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/baseline/2830_3979_000018_000009-1676.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp1_2/proposed/2830_3979_000018_000009-1676.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+
+                                       <td>
+
+                                                                        <audio controls>
+                                      <source src="./demos/exp1_2/ground/2830_3979_000018_000009.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+
+                                  </td>
+                                </tr>
+
+            
+
+
+
+
+
+                                                                                                      <td>
+                              
+
+
+                                                            
+
+                      </tbody>
+                       
+                   </table>
+
+
+
+
+
+                    <table class="table">
+                      <thead>
+                            <th colspan=5 style="color:blue;"><h4>(B) 5 Basic Emotions Evaluation</h4></th>
+
+                        <tr>
+             
+                         <th colspan=5 style="color:black;"><h5>In this experiment, we evaluate the performance of the proposed framework on synthesizing 5 basic emotions: Angry, Happy, Sad, Surprise and Neutral. </h5></th>
+                        </tr>
+                      <tbody>
+                                
+                                
+                                <tr>
+                                    
+                                    <th style="text-align:center;font-size:80%">   Neutral </th>
+                                    <th style="text-align:center;font-size:80%">   Angry </th>
+                                    <th style="text-align:center;font-size:80%">   Happy </th>
+                                    <th style="text-align:center;font-size:80%">   Sad </th>
+                                    <th style="text-align:center;font-size:80%">   Surprise </th>              
+
+                                </tr>
+                                                            <!-- single sentence -->
+
+ <th colspan=5 style="color:black;"><h5> Input Text: "Is the atmospheric condition, having once reached this density, to become final?" </h5></th>
+                        </tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/neutral/260_123288_000031_000001-1575.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/angry/260_123288_000031_000001-1575.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/happy/260_123288_000031_000001-1575.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/sad/260_123288_000031_000001-1575.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/surprise/260_123288_000031_000001-1575.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td></tr>
+
+                                   <!-- single sentence -->
+
+
+ <th colspan=5 style="color:black;"><h5> Input Text: ""I will show you what a good job I did," and she went to a tall cupboard and threw open the doors." </h5></th>
+                        </tr>
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/neutral/1284_1180_000053_000001-394.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/angry/1284_1180_000053_000001-394.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/happy/1284_1180_000053_000001-394.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/sad/1284_1180_000053_000001-394.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/surprise/1284_1180_000053_000001-394.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td></tr>
+ <!-- single sentence -->
+
+
+ <th colspan=5 style="color:black;"><h5> Input Text: "I could not take my eyes off this indented iron bar." </h5></th>
+                        </tr>
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/neutral/260_123286_000029_000002-1465.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/angry/260_123286_000029_000002-1465.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/happy/260_123286_000029_000002-1465.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/sad/260_123286_000029_000002-1465.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/surprise/260_123286_000029_000002-1465.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td></tr>
+
+                                  <!-- single sentence -->
+
+
+ <th colspan=5 style="color:black;"><h5> Input Text: "Luther's commentary fills seven hundred and thirty-three octavo pages in the Weidman Edition of his works." </h5></th>
+                        </tr>
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/neutral/2830_3979_000017_000001-1662.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/angry/2830_3979_000017_000001-1662.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/happy/2830_3979_000017_000001-1662.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/sad/2830_3979_000017_000001-1662.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/surprise/2830_3979_000017_000001-1662.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td></tr>
+
+
+
+
+                                                                                                           <!-- single sentence -->
+
+
+ <th colspan=5 style="color:black;"><h5> Input Text: "A ring of amethyst I could not wear here, plainer to my sight, Than that first kiss." </h5></th>
+                        </tr>
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/neutral/908_31957_000017_000001-4830.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/angry/908_31957_000017_000001-4830.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/happy/908_31957_000017_000001-4830.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/sad/908_31957_000017_000001-4830.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                    <td>
+                                    <audio controls>
+                                      <source src="./demos/exp2/surprise/908_31957_000017_000001-4830.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                  </td>
+
+
+                                                                         
+
+
+
+                                                            
+
+                      </tbody>
+                       
+                   </table>
+
+
+
+
+
+
+
+                    <table class="table">
+                      <thead>
+                            <th colspan=2 style="color:blue;"><h4>(C) 8 Emotions Evaluation</h4></th>
+
+                        <tr>
+             
+                         <th colspan=2 style="color:black;"><h5>(1) Anger vs. Anxiety </h5></th>
+                        </tr>
+                      <tbody>
+                                
+                                
+                                <tr>
+                                    
+                                    <th style="text-align:center;font-size:80%">   Anger </th>
+                                    <th style="text-align:center;font-size:80%">   Anxiety </th>
+          
+
+                                </tr>
+                                                                <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: ""The outbreak," I returned, "will make a tremendous occasion of Thursday night;" and everyone so agreed with me that, in the light of it, we lost all attention for everything else." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Angry/121_127105_000041_000000-325.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Anxious/121_127105_000041_000000-325.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+<!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "The Patchwork Girl was taller than he, when she stood upright, and her body was plump and rounded because it had been so neatly stuffed with cotton." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Angry/1284_1181_000003_000001-396.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Anxious/1284_1181_000003_000001-396.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+                                  <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "Miss Taylor was soon starving for human companionship, for the lighter touches of life and some of its warmth and laughter." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Angry/1995_1826_000016_000010-891.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Anxious/1995_1826_000016_000010-891.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                   <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: ""After all, the "Mormon" people regard the advent of the Buchanan army as one of the greatest material blessings ever brought to them." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Angry/4077_13754_000001_000000-2099.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Anxious/4077_13754_000001_000000-2099.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                                                     <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "Irene Burgoyne, one of her family, told me in confidence that there was a romance somewhere back in the beginning." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Angry/4446_2271_000015_000004-2186.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_1/Anxious/4446_2271_000015_000004-2186.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                        <tr>
+             
+                         <th colspan=2 style="color:black;"><h5>(2) Pleasure vs. Elation </h5></th>
+                        </tr>
+                                                    <tr>
+                                    
+                                    <th style="text-align:center;font-size:80%">   Pleasure </th>
+                                    <th style="text-align:center;font-size:80%">   Elation </th>
+                                </tr>              
+ <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: ""The outbreak," I returned, "will make a tremendous occasion of Thursday night;" and everyone so agreed with me that, in the light of it, we lost all attention for everything else." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Pleasure/121_127105_000041_000000-325.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Elation/121_127105_000041_000000-325.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+ <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "But if you go on into the veracities of the school of Clay, you will find there is something at the roots of almond and apple trees, which is-This." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Pleasure/1188_133604_000040_000002-217.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Elation/1188_133604_000040_000002-217.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                  <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "The Patchwork Girl was taller than he, when she stood upright, and her body was plump and rounded because it had been so neatly stuffed with cotton." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Pleasure/1284_1181_000003_000001-396.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Elation/1284_1181_000003_000001-396.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                   <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "Martelli composed a satire against Maffei, in which he designated him by the anagram of Femia." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Pleasure/3729_6852_000003_000004-2049.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Elation/3729_6852_000003_000004-2049.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                  <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "Irene Burgoyne, one of her family, told me in confidence that there was a romance somewhere back in the beginning." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Pleasure/4446_2271_000015_000004-2186.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_2/Elation/4446_2271_000015_000004-2186.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+<tr>
+             
+                         <th colspan=2 style="color:black;"><h5>(3) Relaxed vs. Protected </h5></th>
+                        </tr>
+                                                    <tr>
+                                    
+                                    <th style="text-align:center;font-size:80%">   Relaxed </th>
+                                    <th style="text-align:center;font-size:80%">   Protected </th>
+                                </tr>              
+
+
+   <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "An appeal was made to the executive of the state, but little encouragement was returned." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Relaxed/4077_13751_000015_000001-2086.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Protected/4077_13751_000015_000001-2086.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                  <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: ""After all, the "Mormon" people regard the advent of the Buchanan army as one of the greatest material blessings ever brought to them." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Relaxed/4077_13754_000001_000000-2099.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Protected/4077_13754_000001_000000-2099.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                     <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: ""Let's swap caps," he said, "and I will give you my jack knife to boot."" </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Relaxed/7021_85628_000009_000000-3741.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Protected/7021_85628_000009_000000-3741.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                    <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: ""Very well," replied the Boolooroo, "you shall eat with me, for then I can keep an eye on you." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Relaxed/8555_284447_000010_000000-4635.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Protected/8555_284447_000010_000000-4635.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                    <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: ""Can't I take any of the treasure with me?" he pleaded." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Relaxed/8555_284449_000049_000000-4763.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_3/Protected/8555_284449_000049_000000-4763.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+
+
+<tr>
+             
+                         <th colspan=2 style="color:black;"><h5>(4) Surprised vs. Alert </h5></th>
+                        </tr>
+                                                    <tr>
+                                    
+                                    <th style="text-align:center;font-size:80%">   Surprised </th>
+                                    <th style="text-align:center;font-size:80%">   Alert </th>
+                                </tr>              
+
+
+   <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "Philip had a good appetite, a sunny temper, and a clear hearty laugh." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Surprise/4970_29093_000014_000002-2605.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Alert/4970_29093_000014_000002-2605.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                  <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "The king remained for a moment to enjoy a triumph as complete as it could possibly be." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Surprise/7127_75947_000006_000000-3854.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Alert/7127_75947_000006_000000-3854.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+                                   <!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "The fisher of the chutes, meanwhile, was swimming straight downstream for the broken water." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Surprise/7176_88083_000014_000000-3989.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Alert/7176_88083_000014_000000-3989.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+<!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "thirty seven degrees centigrade equals human body temperature" </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Surprise/8463_294825_000036_000000-4540.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Alert/8463_294825_000036_000000-4540.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+<!-- single sentence -->
+
+ <th colspan=2 style="color:black;"><h5> Input Text: "Trot was in the room, too, standing in a corner and listening to all that was said while she racked her little brain for an idea that would enable her to save Cap'n Bill from being patched." </h5></th>
+                        </tr>
+                                <tr>
+
+                                <tr>
+                                  
+                                  <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Surprise/8555_284447_000012_000000-4638.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td>
+
+                                                                                                      <td>
+                                    <audio controls>
+                                      <source src="./demos/exp3_4/Alert/8555_284447_000012_000000-4638.wav" type="audio/wav" />
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                
+                                  </td></tr>
+
+
+
+
+
+
+
+                                                            
+
+                      </tbody>
+                       
+                   </table>
+
+The speech samples you listened to were synthesized without using any emotional speech data during TTS training. Instead, these emotions were crafted by  manipulating three key emotional dimensions: pleasure, arousal, and dominance."
+
+
+
+
+
+
+
+
+                  </div>
+                 
+        </div>
+
+      </div>
+      <hr>
+      <div class="row" id="ref">
+        <div class="col">
+          <!--<h2>References</h2>
+          
+         -->
+        </div>
+      </div>
+
+[1] Kun Zhou, et al, "Phonetic Enhanced Language Modeling for Text-to-Speech Synthesis", INTERSPEECH 2024
+      <hr>
+      <!-- <div class="row" id="contact">
+          <div class="col">
+            <h2>Contact</h2>
+            <div></div>
+          </div>
+        </div> -->
+    </div>
+  </main>
+  <footer class="bg-secondary text-light mt-4 pt-3 pb-2 ">
+    <div class="container">
+      <p class="text-center">
+        
+      </p>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
